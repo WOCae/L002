@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://cg77odbj23jwj"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_t5ofp"]
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_t5ofp")
+
+[node name="elapsed_time" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 50
+
+[node name="elapsed_time_ph" type="Label" parent="."]
+offset_left = 1.0
+offset_top = 47.0
+offset_right = 41.0
+offset_bottom = 70.0
+theme_override_font_sizes/font_size = 50

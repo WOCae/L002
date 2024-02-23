@@ -13,13 +13,14 @@ func _ready():
 	file1.close()
 
 	#ファイルの読み込み	
-	var file2 = FileAccess.open(\"data.txt\", FileAccess.READ)
+	var file2 = FileAccess.open(\"data.csv\", FileAccess.READ)
 	var line = file2.get_csv_line()
 	while line.size() >= 3:
 		# 横方向の項目数が足りない場合は終了
-		print(\"name: %s\" % line[0])
-		print(\"hp: %s\" % line[1])
-		print(\"mp: %s\" % line[2])
+		print(\"colm1: %s\" % line[0])
+		print(\"colm2: %s\" % line[1])
+		print(\"colm3: %s\" % line[2])
+		print(\"colm4: %s\" % line[3])		
 		line = file2.get_csv_line()
 	file2.close()
 "

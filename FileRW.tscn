@@ -1,29 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://dfswuw7qobnfb"]
+[gd_scene load_steps=2 format=3 uid="uid://w1g8cmmvnmxc"]
 
-[sub_resource type="GDScript" id="GDScript_exrr7"]
-script/source = "extends Node2D
-#import File
-
-func _ready():
-	
-	#ファイルの書込み
-	var string1 = \"testLine1\\ntestLine2\"
-	var file1 = FileAccess.open(\"string.txt\", FileAccess.WRITE)
-	file1.store_string(string1)		
-	file1.close()
-
-	#ファイルの読み込み	
-	var file2 = FileAccess.open(\"data.csv\", FileAccess.READ)
-	var line = file2.get_csv_line()
-	while line.size() >= 3:
-		# 横方向の項目数が足りない場合は終了
-		print(\"colm1: %s\" % line[0])
-		print(\"colm2: %s\" % line[1])
-		print(\"colm3: %s\" % line[2])
-		print(\"colm4: %s\" % line[3])		
-		line = file2.get_csv_line()
-	file2.close()
-"
+[ext_resource type="Script" path="res://FileRW.gd" id="1_5m006"]
 
 [node name="FileRW" type="Node2D"]
-script = SubResource("GDScript_exrr7")
+script = ExtResource("1_5m006")

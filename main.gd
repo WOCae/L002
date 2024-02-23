@@ -3,11 +3,29 @@ var elapsed_time:float
 var elapsed_time_ph:float
 
 @onready var _camera = $Camera2D # カメラ.
+@export var speed = 5
 var _tShake: float = 0 # 画面揺らすタイマー.
 const TIMER_SHAKE = 0.5 # 0.5秒の間揺らす
 func _process(delta):
 	elapsed_time += delta	
 	$elapsed_time.text = "経過時間"+"%7.1f" % elapsed_time	
+
+
+	var velocity = Vector2.ZERO
+
+	if Input.is_action_pressed("ui_up"):
+		_camera.position.y -= 100*delta # moveup
+
+	if Input.is_action_pressed("ui_down"):
+		_camera.position.y += 100*delta # movedown
+
+	if Input.is_action_pressed("ui_left"):
+		_camera.position.x -= 100*delta # moveleft
+
+	if Input.is_action_pressed("ui_right"):
+		_camera.position.x += 100*delta # moveright
+
+	#position += velocity.normalized() * speed
 
 	if Input.is_action_pressed(("ui_select"))|| Input.is_action_pressed(("start")):
 	# 画面揺らす

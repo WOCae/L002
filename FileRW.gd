@@ -20,3 +20,16 @@ func _ready():
 		print("colm4: %s" % line[3])		
 		line = file2.get_csv_line()
 	file2.close()
+
+	#テキストでの読み込み
+	var file = FileAccess.open("res://data.txt", FileAccess.READ)
+	var line2 = file.get_as_text()
+	#print(line.size())
+	print("line2:\n",line2)	
+	var row1 = line2.split("\n") #行の取得
+	var colum1 = row1[0].split(",") #列の取得
+	print("row1:",row1[0])
+	print("colum1:",colum1[0])
+		
+	file.close()
+	

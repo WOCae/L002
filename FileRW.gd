@@ -9,7 +9,7 @@ func _ready():
 	file1.store_string(string1)		
 	file1.close()
 
-	#ファイルの読み込み	
+	#ファイルの読み込み	 CSVのラインとして読み込み
 	var file2 = FileAccess.open("data.txt", FileAccess.READ)
 	var line = file2.get_csv_line()
 	while line.size() >= 3:
@@ -28,8 +28,8 @@ func _ready():
 	print("line2:\n",line2)	
 	var row1 = line2.split("\n") #行の取得
 	var colum1 = row1[0].split(",") #列の取得
-	print("row1:",row1[0])
-	print("colum1:",colum1[0])
+	print("row1:",row1[0]) #取得行を表示
+	print("colum1:",colum1[0]) #行内の列ごとの値を表示
 		
 	file.close()
 	

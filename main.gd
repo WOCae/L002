@@ -3,7 +3,8 @@ extends Node2D
 var elapsed_time:float
 var elapsed_time_ph:float
 
-@onready var Camera = $Camera2D # カメラ.
+@onready var Camera = $Player/Camera2D # カメラ.
+@onready var Player = $Player # プレイヤー
 #@export var speed = 5
 var moveCam: float = 0 
 const moveTime = 0.5 
@@ -16,17 +17,17 @@ func _process(delta):
 	var velocity = Vector2.ZERO
 
 	if Input.is_action_pressed("ui_up"):
-		Camera.position.y -= 100*delta # moveup
-
+		#Camera.position.y -= 100*delta # moveup
+		Player.position.y -= 100*delta
 	if Input.is_action_pressed("ui_down"):
-		Camera.position.y += 100*delta # movedown
-
+		#Camera.position.y += 100*delta # movedown
+		Player.position.y += 100*delta
 	if Input.is_action_pressed("ui_left"):
-		Camera.position.x -= 100*delta # moveleft
-
+		#Camera.position.x -= 100*delta # moveleft
+		Player.position.x -= 100*delta
 	if Input.is_action_pressed("ui_right"):
-		Camera.position.x += 100*delta # moveright
-
+		#Camera.position.x += 100*delta # moveright
+		Player.position.x += 100*delta
 	if Input.is_action_pressed(("ui_select"))|| Input.is_action_pressed(("start")):
 	# 画面揺らす
 		Camera.offset = Vector2.ZERO

@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cg77odbj23jwj"]
+[gd_scene load_steps=4 format=3 uid="uid://cg77odbj23jwj"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_t5ofp"]
 [ext_resource type="PackedScene" uid="uid://df7ea2sq3lb60" path="res://FileRW.tscn" id="2_7ak34"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ak33q"]
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_t5ofp")
@@ -18,10 +20,20 @@ offset_right = 41.0
 offset_bottom = 70.0
 theme_override_font_sizes/font_size = 50
 
-[node name="Camera2D" type="Camera2D" parent="."]
-
 [node name="FileRW" parent="." instance=ExtResource("2_7ak34")]
 
 [node name="Line2D" type="Line2D" parent="."]
 points = PackedVector2Array(0, 0, 1152, 0, 1152, 648, 0, 648)
 closed = true
+
+[node name="Player" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("RectangleShape2D_ak33q")
+
+[node name="Line2D" type="Line2D" parent="Player"]
+points = PackedVector2Array(-8, 8, 8, 8, 8, -8, -8, -8)
+closed = true
+default_color = Color(1, 0, 1, 1)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]

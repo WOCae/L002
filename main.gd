@@ -42,6 +42,9 @@ func _process(delta):
 	Camera.offset = Vector2.ZERO
 	moveCam = 0
 
+	#カメラの位置
+	print(Camera.position)
+
 func _physics_process(delta):
 	elapsed_time_ph += delta	
 	$elapsed_time_ph.text = "経過時間"+"%7.1f" % elapsed_time_ph		
